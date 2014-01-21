@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ZigFu\Scripts\Zig.cs">
+    <Files>
+      <File FileName="Assets\FKscripts\Network\PlayerSync.cs" Line="27" Column="13" />
+      <File FileName="Assets\ZigFu\Scripts\UserEngagers\ZigEngageAllUsers.cs" Line="33" Column="34" />
+      <File FileName="Assets\FKscripts\Effects\CollisionMgmt.cs" Line="22" Column="5" />
+      <File FileName="Assets\ZigFu\Scripts\UserControls\ZigSkeleton.cs" Line="208" Column="10" />
+      <File FileName="Assets\ZigFu\Scripts\Zig.cs" Line="54" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
