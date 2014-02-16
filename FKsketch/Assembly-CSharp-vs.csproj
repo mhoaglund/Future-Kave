@@ -46,10 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Demo.cs" />
      <Compile Include="Assets\FKscripts\Effects\CollisionMgmt.cs" />
+     <Compile Include="Assets\FKscripts\Effects\ConRot.cs" />
      <Compile Include="Assets\FKscripts\Effects\Imprint.cs" />
+     <Compile Include="Assets\FKscripts\Effects\Lifespan.cs" />
+     <Compile Include="Assets\FKscripts\Effects\StarPlot.cs" />
+     <Compile Include="Assets\FKscripts\ExtendedObjects\KaveNode.cs" />
      <Compile Include="Assets\FKscripts\Network\NetworkManager.cs" />
      <Compile Include="Assets\FKscripts\Network\PlayerSync.cs" />
+     <Compile Include="Assets\FKscripts\Network\TriggerManager.cs" />
+     <Compile Include="Assets\FKscripts\Utilities\CheckIDs.cs" />
+     <Compile Include="Assets\FKscripts\Utilities\GeoMath.cs" />
+     <Compile Include="Assets\Twitter.cs" />
      <Compile Include="Assets\ZigFu\Scripts\UISessionControls\ZigFader.cs" />
      <Compile Include="Assets\ZigFu\Scripts\UISessionControls\ZigFollowHandPoint.cs" />
      <Compile Include="Assets\ZigFu\Scripts\UISessionControls\ZigPushDetector.cs" />
@@ -74,6 +83,7 @@
      <Compile Include="Assets\ZigFu\Scripts\_Internal\TimedBuffer.cs" />
      <Compile Include="Assets\ZigFu\Scripts\_Internal\kinectSpecific.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
