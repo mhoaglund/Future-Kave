@@ -22,5 +22,9 @@
  / / /    \ \ \    / / /_       __\ \_\     \ \  /    / / /_______\  
  \/_/      \_\_\   \_\___\     /____/_/      \_\/     \/__________/  
 
-1/8/2014
+Start: 1/8/2014
+	
+
+	2/16/2014:
+	Issue seen with moving kinects from machine to machine. Unsure of technical details around issue, but when moving a kinect between machines it is generally necessary to restart them or the MS SDK won't start.
 

@@ -15,12 +15,12 @@ public class ZigEngageAllUsers : MonoBehaviour {
 		{
 			Debug.Log ("Spawned User!");
 		}
-
+		
 		//TODO: ensure that arg-heavy network instantiation isn't destroying the start coordinates of the player in real space
 		GameObject o = (!Network.isServer) ? 
 			Instantiate(InstantiatePerUser) as GameObject :
-			Network.Instantiate(InstantiatePerUser, ZERO, this.transform.rotation, 0) as GameObject;
-
+				Network.Instantiate(InstantiatePerUser, ZERO, this.transform.rotation, 0) as GameObject;
+		
 		GameObject l = Instantiate(UserLamp) as GameObject;
 		l.transform.parent = o.transform;
 		objects[user.Id] = o;

@@ -241,18 +241,15 @@ public class ZigSkeleton : MonoBehaviour
 
     void Zig_UpdateUser(ZigTrackedUser user)
     {
-		if(networkView.isMine)
-		{
-	        UpdateRoot(user.Position);
-	        if (user.SkeletonTracked)
-	        {
-	            foreach (ZigInputJoint joint in user.Skeleton)
-	            {
-	                if (joint.GoodPosition) UpdatePosition(joint.Id, joint.Position);
-	                if (joint.GoodRotation) UpdateRotation(joint.Id, joint.Rotation);
-	            }
-	        }
-		}
+        UpdateRoot(user.Position);
+        if (user.SkeletonTracked)
+        {
+            foreach (ZigInputJoint joint in user.Skeleton)
+            {
+                if (joint.GoodPosition) UpdatePosition(joint.Id, joint.Position);
+                if (joint.GoodRotation) UpdateRotation(joint.Id, joint.Rotation);
+            }
+        }
     }
 
 }
