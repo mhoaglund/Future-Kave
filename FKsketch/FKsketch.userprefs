@@ -1,14 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ZigFu\Scripts\UserEngagers\ZigEngageAllUsers.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FKscripts\Effects\ConRot.cs">
     <Files>
-      <File FileName="Assets\ZigFu\Scripts\UserEngagers\ZigEngageAllUsers.cs" Line="1" Column="1" />
-      <File FileName="Assets\ZigFu\Scripts\UserEngagers\ZigEngageAllUsers.cs" Line="1" Column="1" />
-      <File FileName="Assets\ZigFu\Scripts\Zig.cs" Line="1" Column="1" />
-      <File FileName="Assets\FKscripts\Effects\CollisionMgmt.cs" Line="1" Column="1" />
-      <File FileName="Assets\FKscripts\Effects\StarPlot.cs" Line="1" Column="1" />
-      <File FileName="Assets\FKscripts\Effects\ConRot.cs" Line="1" Column="1" />
+      <File FileName="Assets\FKscripts\Effects\ConRot.cs" Line="20" Column="10" />
       <File FileName="Assets\FKscripts\ExtendedObjects\KaveNode.cs" Line="1" Column="1" />
+      <File FileName="Assets\FKscripts\Network\TriggerManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\FKscripts\Effects\CollisionMgmt.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
