@@ -3,17 +3,24 @@ using System.Collections;
 
 public class Lifespan : MonoBehaviour
 {
+	public int nodeId = 0;
+	public GameObject info;
 
-		// Use this for initialization
 		void Start ()
 		{
 	
 		}
-	
-		// Update is called once per frame
+
 		void Update ()
 		{
 	
 		}
+
+		void die()
+		{
+			//tell the trigger manager to clear my unique ID
+			//info = GameObject.Find("FKinfo");
+			//info.GetComponent<TriggerManager>().clearNode(this.gameObject.GetInstanceID());
+	}
 }
 

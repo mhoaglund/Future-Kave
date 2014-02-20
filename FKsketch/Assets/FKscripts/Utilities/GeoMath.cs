@@ -12,4 +12,22 @@ public static class GeoMath {
 
 		return mp;
 	}
+
+	public static Vector3 below(Vector3 origin)
+	{
+		var under = new Vector3();
+		under.x = origin.x;
+		under.y = origin.y -4;
+		under.z = origin.z;
+		return under;
+	}
+
+	public static Vector3 above(Vector3 origin)
+	{
+		var over = new Vector3();
+		over.x = origin.x;
+		over.y = origin.y +4;
+		over.z = origin.z;
+		return over;
+	}
 }
