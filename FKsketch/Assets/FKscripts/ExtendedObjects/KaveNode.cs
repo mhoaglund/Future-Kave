@@ -3,11 +3,12 @@ using System.Collections;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(AudioSource))]
 public class KaveNode : MonoBehaviour
 {
-	public List<int> contributors = new List<int>();
 	public Dictionary<int, GameObject> Users = new Dictionary<int, GameObject>();
 	public GameObject info;
+	public AudioClip grow;
 
 	private Vector3 start;
 	public int UserCount = 0;
@@ -22,7 +23,10 @@ public class KaveNode : MonoBehaviour
 		me = this.gameObject.GetInstanceID();
 		lifespan = Random.Range(MIN_LIFESPAN, MAX_LIFESPAN);
 		start = this.transform.position;
-		RnG = Random.Range(2, 5);
+		RnG = Random.Range(5, 7);
+		info = GameObject.Find("FKinfo");
+
+		audio.PlayOneShot(grow, 6.0f);
 
 		StartCoroutine(emerge());
 		Destroy(this.gameObject, lifespan);
@@ -40,19 +44,18 @@ public class KaveNode : MonoBehaviour
 		while(t < RnG)
 		{
 			t += Time.deltaTime;
-			this.gameObject.transform.position = Vector3.Lerp(start, start + Vector3.up * 4,  Mathf.SmoothStep(0.0f, 1.0f, Mathf.SmoothStep(0.0f, 1.0f, t)));
+			this.gameObject.transform.position = Vector3.Lerp(start, start + Vector3.up * t * 0.8f,  Mathf.SmoothStep(0.0f, 1.0f, Mathf.SmoothStep(0.0f, 1.0f, t)));
 			yield return null;
 		}
 	}
 
 	void OnDestroy()
 	{
-		info = GameObject.Find("FKinfo");
 		info.GetComponent<TriggerManager>().clearNode(this.gameObject);
 		
 		foreach(var entry in Users)
 		{
-			if(entry.Value != null) entry.Value.gameObject.GetComponent<CollisionMgmt>().stripNode(me);
+			if(entry.Value != null) entry.Value.gameObject.GetComponent<CollisionMgmt>().removeItem(me, "Node");
 		}
 	}
 

@@ -4,6 +4,7 @@ using System.Timers;
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(AudioSource))]
 public class CollisionMgmt : MonoBehaviour {
 
 	public Dictionary<int, GameObject> Partners = new Dictionary<int, GameObject>();
@@ -16,6 +17,7 @@ public class CollisionMgmt : MonoBehaviour {
 	public bool isContributor = false;
 	public Rigidbody rBody;
 	public GameObject fkinfo;
+	public AudioClip enter;
 
 	public delegate void del(Collider coll);
 	public delegate void del_empty();
@@ -76,7 +78,7 @@ public class CollisionMgmt : MonoBehaviour {
 			Partners.Add(id, go);
 			isPaired = true;
 
-			if(Nodes.Count == 0)
+			if(Nodes.Count == 0 & !isContributor)
 			{
 				fkinfo.GetComponent<TriggerManager>().pairMap(this.gameObject, go);
 			}
@@ -87,6 +89,7 @@ public class CollisionMgmt : MonoBehaviour {
 			if(Nodes.TryGetValue(id, out value)) return;
 			Nodes.Add (id, go);
 			isContributor = true;
+			audio.PlayOneShot(enter, 5.0f);
 		}
 
 
@@ -111,8 +114,8 @@ public class CollisionMgmt : MonoBehaviour {
 			//delay the user's ability to produce another node
 			if(Nodes.Count > 0) return;
 			//StartCoroutine(delay (3.0f, stopContributing));
-			stopContributing();
 		}
+		stopContributing();
 	}
 
 	void leavePartner(Collider collider)
@@ -123,7 +126,24 @@ public class CollisionMgmt : MonoBehaviour {
 			var value = gameObject;
 			if(Partners.TryGetValue(pid, out value)) Partners.Remove (pid);
 		}
-		if(Partners.Count == 0) isPaired = false;
+	}
+
+	void OnDestroy()
+	{
+
+		fkinfo.GetComponent<TriggerManager>().clearNode(this.gameObject);
+
+		//Make my partners forget me
+		foreach(var entry in Partners)
+		{
+			if(entry.Value != null) entry.Value.gameObject.GetComponent<CollisionMgmt>().removeItem(me, "User");
+		}
+
+		//Remove any ghostly contributors
+		foreach(var node in Nodes)
+		{
+			if(node.Value != null) node.Value.gameObject.GetComponent<KaveNode>().stripUser(me);
+		}
 	}
 
 	public void join()
@@ -134,11 +154,16 @@ public class CollisionMgmt : MonoBehaviour {
 	public void stopContributing()
 	{
 		if(Nodes.Count == 0) isContributor = false;
+		if(Partners.Count == 0) isPaired = false;
 	}
 
-	public void stripNode(int id)
+	public void removeItem(int id, string type)
 	{
-		Nodes.Remove(id);
+		if(type == "Node")
+		{
+			Nodes.Remove(id);
+		}
+		else if (type == "User") Partners.Remove(id);
 		stopContributing();
 	}
 }
